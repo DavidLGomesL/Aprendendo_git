@@ -1,0 +1,157 @@
+*GIT*
+
+Git é um Sistema Distribuído de Controle de Versão (DVCS) que pode ser usado na criação e desenvolvimento de softwares e também no registro de edições de qualquer tipo de arquivos. É possível também verificar o histórico de alterações, quem realizou tal alteração e quando foi, para casos de erros no desenvolvimento dos sistemas.
+
+O Git permite que mais de um desenvolvedor possa trabalhar de forma simultânea no desenvolvimento do código, além de permitir que possa ser salvo uma cópia do trabalho de forma local ou remota antes de passar para a àrea de código mastar do sistema desenvolvido.
+
+Obs: O Git não permite a substituição de alterações de um Dev sobre o outro, ou seja, não permite que um desenvolvedor sobrescreva a parte do código criada por outro desenvolvedor.
+
+"Quase todas as operações do Git são feitas de forma local. Assim, não existem, ao utilizar o Git, problemas que normalmente acontecem quando se usa um controlador de versões que depende muito de uma rede como, por exemplo, problemas de tráfego de arquivos ou latências de rede. Como o Git opera localmente, quase que todas operações são efetuadas de forma instantânea." Fonte: módulo GIT, Newtab Academy.
+
+Uma das filosofias do Git é a integridade dos seus arquivos, assim, o mesmo faz uso de um checksum para assegurar que o usuário não irá perder alguma informação ou corromper arquivos sem perceber.
+
+-->> Estados do GIT <<--
+
+O possui três estados principais em que seus arquivos podem se encontrar: Committed, Modificado (Modified) e Preparado.
+
+	Committed: É quando os dados estão amazenados em seu banco de dados;
+
+	Modificado (Modified): Vai significar que você realizou uma alteração no seu arquivo, 	 mas que não realizou o commit do mesmo ainda;
+
+	Preparado: Significa que você marcou a versão atual do seu arquivo modificado para 		fazer parte de seu próximo commit.
+
+Para assegurar a consistência desses estados, o Git divide seu diretório em três seções:
+
+	- Repositório Git;
+	- Diretório de Trabalho;
+	- Área de Preparação.
+
++ Repositório Git:
+
+É o local onde se encontram os arquivos salvos, ou seja, os arquivos que sofreram committed. São esses arquivos que servem como base para análisar o estado em que se encontram os arquivos no diretório do trabalho;
+
++ Diretório de Trabalho:
+
+É o local onde se encontram os arquivos que são modificáveis. É feita uma comparação de forma rotineira com os arquivos correspondentes e que se encontram presentes no REPOSITÓRIO GIT para que sejam classificados como modificados, caso seja necessário;
+
++ Área de Preparação:
+
+Prepara os arquivos que foram modificados para serem enviados ao repositório e, assim, serem atualizados no REPOSITÓRIO GIT.
+
+-->> Comandos do Git <<--
+
+O Git possui diversos comandos, onde alguns acabam sendo utilizados mais que outros no dia a dia de trabalho dos Dev's (desenvolvedores). Abaixo segue uma lista com alguns dos principais comandos mais utilizados:
+
+	- git init
+	
+	É o primeiro passo antes de iniciar qualquer trabalho no Git. O git init vai criar uma 		pasta oculta no local onde o(s) arquivo(s) a ser(em) desenvolvido(s), será(ão) salvo(s).
+	
+	Obs: Se você clonar um repositório do GitHub, por exemplo, não será necessária a 		criação do git init, pois o mesmo só sede ser usado para projetos que se iniciam do 	zero. Caso você utilize o git init, em um arquivo clonado de um repositório já 		existente, todas as informações desse repositório serão excluídas.
+	
+	- git status
+	
+	Vai mostrar a situação em que se encontram os arquivos, se algum está em commit ou em 		monitoramento, se ouve algum arquivo modificado ou não.
+	
+	- git add
+	
+	O git add é usado juntamente com o nome do arquivo que você deseja realizar o commit. 		Exemplo:
+	
+	Se você tiver um arquivo de texto no seu trabalho GIT e quiser comitar somente esse 	arquivo, você irá fazer conforme abaixo:
+	
+	git add texto.txt
+	
+	Assim, somente o arquivo texto irá sofrer commit.
+	
+	- git add .
+	
+	O "git add ." é usado para fazer o commit de mais de um arquivo ao mesmo tempo, podendo 		ser de todos os arquivos que estão sendo trabalhados ou somente de um conjunto de 		arquivos. Exemplo:
+	
+	Se eu estiver trabalhando com os três arquivos a seguir: texto.txt; imagem.jpeg; 		trabalho.pdf. Ao usar o comando "git add .", será feito o commit de todos os arquivos.
+	
+	- git commit -m "comentário"
+	
+	Para realizar o commit de um arquivo ou vários arquivos é preciso executar o comando 	git commit -m "comentário", onde na parte do comentário, deverá ser colocado um 		comentário que faça sentido para que você ou outro desenvolvedor que esteja trabalhando 		no projeto, possa saber o que foi modificado naqueles arquivos que sofreram commit. 	Exemplo:
+	
+	git commit -m "Alteração do código na linha 73"
+	
+	Obs: Não há limite para realização de commit's. 
+	
+	Obs²: É possível realizar o commit seja em uma alteração de código de uma linha ou em 		uma alteração de código em um bloco de códigos.
+	
+	Obs³: Sempre que estiver realizando um trabalho e tiver que parar o mesmo, e importante 		que realize o commit para que não a perder todas as alterações realizadas em caso de 	algum problema de queda de energia, queima de equipamento, etc.
+	
+	Obs*: É possível colocar um subcomentário no commit, explicando melhor e com mais 		detalhes o que foi realizado de alteração.
+	
+	- git diff
+	
+	É usado para saber se um arquivo foi alterado e o que foi colocado no mesmo.
+	
+	Obs: Sempre após uma alteração, será preciso fazer um novo commit.
+	
+	- git log
+	
+	Esse comando é usado para verificar o histórico dos commit's efetuados em determinado 		repositório. Assim, será possível ver quem realizou o commit, quando o mesmo foi 		realizado e o horário da realização do commit.
+	
+	- .gitignore
+	
+	O arquivo ".gitignore" é um arquivo criado para que possa colocar no mesmo,informações 		ou outros arquivos que deseja que não sejam vistos pelos usuários finais (aqueles que 		irão acessar o site, app) criado.
+	
+	Normalmente esse arquivo é criado para salvar senhas de usuários master ou códigos que 		não podem ficar disponibilizados, pois há o risco de serem alterados por 			cybercriminosos.
+	
+	Obs: Para criar o arquivo ".gitignore" será usado o comando "touch .gitignore".
+	
+	- git tag -a v1.0
+	
+	É possível no Git a criação de tag's em pontos especificos na história do código. 		Essas tag's funcionan como pontos importantes dentro do código. Geralmente são usadas 		para ponstos de update no código. Exemplo: v1.0; v1.1; v1.2; etc.
+	
+	Obs: Você pode ver um exemplo de atualização, ao consultar a versão que se encontra 	seu aparelho telefonico (celular). Por exemplo, a versão do meu aparelho está na: 		v12.5.1.0.
+	
+	- git clone
+	
+	Geralmente esse comando é usado para se clonar um diretório presente no GitHub, mas 	pode ser usado também para se clonar um diretório local.
+	
+	Exemplos:
+	
+	Para se clonar um diretório direto do GitHub, o mesmo precisa ser público e você usará 		o comando git clone, da seguinte maneira:
+	
+	git clone + url do repositório que deseja clonar
+	
+	git clone https://github.com/DavidLGomesL/Aprendendo_git.git
+	
+	Para clonar um diretório local, basta usar o comando git clone + o nome do diretório 	que deseja clonar:
+	
+	git clone Aprendendo_git
+	
+	- git push
+	
+	O git push será usado quando o trabalho estiver pronto e quisermos enviar os arquivos 		modificados ao remoto do projeto. Exemplo:
+	
+	git push origin master
+	
+	Obs: Ao executar o comando será pedido o login e senha do GitHub.
+	
+	- git pull
+	
+	Esse comando buscará novas confirmações de todas as ramificações rastreadas no 		controle remoto padrão (de origem).
+	
+	- git pull origin master
+	
+	Esse comando irá extrair as alterações do controle remoto Origin e filial principal, 	mesclando-as a filial local com um checkout.
+	
+	- git reverse
+	
+	Esse código será usado quando desejar voltar a uma versão anterior do código que se 	encontra salva. Ou seja, ele vai desfazer uma atualização que tenha sido feita.
+	
+	Esse processo pode acontecer por diversos fatores, mas o principal é por algum erro de 		código que inviabilizou o sistema.
+	
+	- git flow
+	
+	É você criar sub-blanches para desenvolver os códigos junto de outros dev's, antes de 		"subir" os códigos para a blanche master.
+	
+	- git fork
+	
+	É eu pegar o repositório público de alguém e "tornar" meu, ou seja, o mesmo 			repositório será criado para mim no GitHub, como se fosse uma cópia.
+	
+	
+Ess é um resumo sobre o que é o GIT e alguns códigos usados no mesmo.
+	
